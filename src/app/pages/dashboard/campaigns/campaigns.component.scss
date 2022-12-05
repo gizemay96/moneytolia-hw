@@ -1,0 +1,82 @@
+@import "veriables.scss";
+@import "input_theme.scss";
+@import "buttons.scss";
+@import "modals.scss";
+@import "text_theme.scss";
+@import "veriables.scss";
+
+.campaigns-page{
+    .campaign-card {
+        max-width: 460px;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    
+        .header {
+            height: 90px;
+    
+            img {
+                max-height: 50px;
+                width: auto;
+                padding-right: 1vw;
+            }
+    
+            .title {
+                color: black;
+                padding-right: 10px;
+                padding-bottom: 12px;
+            }
+    
+            .menu-button {
+                height: 25px;
+                background: transparent;
+                border: none;
+    
+            }
+        }
+    
+        .body {
+            margin-bottom: 12px;
+            min-height: 50px;
+            word-break: break-all;
+    
+            p {
+                color: $tertiary-color;
+            }
+        }
+    
+        .footer {
+    
+            .campaign-score-title {
+                color: $secondary-color;
+                padding-bottom: 6px;
+            }
+    
+            .expire-date {
+                width: 116px;
+                height: 36px;
+    
+                background: rgba(64, 206, 124, 0.29);
+                border-radius: 42px;
+    
+                p {
+                    color: $success-color;
+                }
+            }
+        }
+    
+        .campaign-score {
+    
+            .score-buttons {
+                width: 126px;
+                height: 36px;
+    
+                background: #F1F1F1;
+                border-radius: 42px;
+                padding: 2px 4px;
+            }
+        }
+    
+    }
+}

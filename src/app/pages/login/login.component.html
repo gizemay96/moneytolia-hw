@@ -1,0 +1,37 @@
+<div class="login-page">
+
+  <div class="header d-flex align-items-center">
+    <div class="logo-div ">
+      <img src="../../../assets/images/icon_sm.png" alt="">
+    </div>
+  </div>
+
+  <div class="body row align-items-center justify-content-around">
+    <!-- <div class="col-xl-2 col-md-0 col-sm-0"></div> -->
+    <div class="left col-lg-5 col-sm-12 d-flex justify-content-end">
+      <div class="user-form ">
+        <h1>Giriş Yap</h1>
+        <p>Kullanıcı adını ve şifren ile giriş yapabilirsin.</p>
+
+        <form [formGroup]="loginForm" (submit)="login()">
+          <div class="name">
+            <mat-form-field appearance="outline">
+              <input class="input" placeholder="Kullanıcı Adı" matInput type="string" formControlName="email" />
+            </mat-form-field>
+          </div>
+          <div class="password">
+            <mat-form-field appearance="outline">
+              <input class="input" placeholder="Şifre" matInput type="password" formControlName="password"  />
+            </mat-form-field>
+          </div>
+          <button type="submit" class="primary-large-btn">Giriş Yap</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="right col-lg-7 col-sm-12 d-flex justify-content-end">
+      <img class="login-vector" src="../../../assets/images/login_vector.png" alt="">
+    </div>
+  </div>
+
+</div>

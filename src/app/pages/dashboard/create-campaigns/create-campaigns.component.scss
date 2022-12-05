@@ -1,0 +1,44 @@
+@import "input_theme.scss";
+@import "veriables.scss";
+
+.create-campaign-form {
+    max-width: 804px;
+    left: 404px;
+    top: 205px;
+
+    background: white;
+    border-radius: 16px;
+    padding: 45px;
+
+    .title-input , .date-input , .score-input {
+        @include input($height: 58px);
+        
+    }
+
+    .description-input {
+        @include input;
+
+    }
+
+}
+
+.campaign-type{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px -4px rgba(0,0,0,0.62);
+    width: 90px;
+    .type-title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: $tertiary-color;
+    }
+    img{
+        width: 25px;
+    }
+}

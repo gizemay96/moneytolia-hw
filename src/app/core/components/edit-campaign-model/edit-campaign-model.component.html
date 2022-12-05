@@ -1,0 +1,25 @@
+<div class="edit-campaign-modal d-flex justify-content-center align-items-center h-100">
+    <div class="body">
+        <div class="header d-flex  align-items-center">
+            <img src="assets/icons/edit_orange.png" alt="">
+            <h2>Kampanya Düzenleme</h2>
+        </div>
+        <div>
+            <form [formGroup]="campaignEditForm" (submit)="editCampaign()">
+                <div class="title-input">
+                    <mat-label>Başlık</mat-label>
+                    <mat-form-field appearance="outline">
+                        <input matInput type="string" formControlName="title" />
+                    </mat-form-field>
+                </div>
+                <div class="description-input">
+                    <mat-label>Açıklama</mat-label>
+                    <mat-form-field appearance="outline">
+                        <textarea rows="4" matInput type="string" formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+                <button type="submit" class="primary-large-btn">Değişiklikleri Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

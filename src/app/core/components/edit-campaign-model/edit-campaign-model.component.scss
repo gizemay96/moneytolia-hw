@@ -1,0 +1,27 @@
+@import "input_theme.scss";
+.edit-campaign-modal {
+    padding: 20px;
+}
+
+.body {
+    width: 520px;
+
+    .header {
+        margin-bottom: 40px;
+        img {
+            margin: 0 10px 5px 0;
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .title-input {
+        @include input($height: 58px);
+    }
+
+    .description-input {
+        @include input;
+        margin-bottom: 40px;
+    }
+
+}

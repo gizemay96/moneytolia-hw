@@ -1,0 +1,43 @@
+<div class="campaigns-page">
+    <div class="row w-100">
+        <div class="col-md-6 col-xxl-4" *ngFor="let campaign of campaignList">
+            <div class="campaign-card">
+                <div class="header d-flex justify-content-between">
+                    <img [src]="'assets/icons/' + commonService.getCampaignIconasType(campaign.type) " alt="">
+                    <p class="title">{{campaign.title}}</p>
+                    <button class="menu-button" [matMenuTriggerFor]="menu">
+                        <img style="height: 20px;" src="assets/icons/three_dot.png" alt="">
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="editCampaign(campaign)">
+                            <img style="height: 20px;" src="assets/icons/edit.png" alt="">
+                            Güncelle
+                        </button>
+                        <button mat-menu-item (click)="confirmationModal(campaign)">
+                            <img style="height: 20px;" src="assets/icons/delete.png" alt="">
+                            Sil
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="body">
+                    <p>{{campaign.description}}</p>
+                </div>
+                <div class="footer">
+                    <p class="campaign-score-title">Kampanya Puanı</p>
+                    <div class="campaign-score d-flex justify-content-between align-items-center">
+                        <div class="score-buttons d-flex justify-content-between align-items-center">
+                            <div> <img src="assets/icons/minus.png" alt=""></div>
+                            <div>{{campaign.score}}</div>
+                            <div> <img src="assets/icons/plus.png" alt=""></div>
+                        </div>
+                        <div class="expire-date d-flex align-items-center justify-content-center">
+                            <p> {{campaign.expireDate | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+</div>

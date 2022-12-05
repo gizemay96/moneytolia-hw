@@ -1,0 +1,73 @@
+@import "../../core/theme/veriables.scss";
+
+.dashboard {
+    color: #F1F1F1;
+}
+
+mat-toolbar {
+    background: white;
+    color: black;
+
+    .toggle-btn {
+        margin-right: 10px;
+    }
+}
+
+mat-sidenav {
+    margin: 45px;
+    width: 250px;
+    border-right: none;
+    background: white;
+    color: $error-color;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+
+    @media screen and (max-width: 1400px) {
+        width: 200;
+        margin: 45px 25px;
+        padding: 10px;
+    }
+}
+
+.content {
+    margin: 30px 0px 0px 4vw;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background-color:
+        #F1F1F1;
+}
+
+
+.link {
+    cursor: pointer;
+    color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1.8rem 0;
+
+    img {
+        width: 2vw;
+        margin-right: 0.6vw;
+    }
+
+    color: $tertiary-color;
+}
+
+.link:is(.active) {
+    font-size: 16px;
+    line-height: 163.8%;
+    color: black;
+}
+
+h2 {
+    color: $primary-color;
+}
+
+.header {
+    margin: 50px 90px;
+}

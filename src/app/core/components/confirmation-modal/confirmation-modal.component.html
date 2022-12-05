@@ -1,0 +1,13 @@
+<div class="confirmation-modal d-flex justify-content-center align-items-center h-100">
+<div class="body w-100 h-100">
+     <div>
+          <img style="width: 86px;" src="assets/icons/trash.png" alt="">
+         </div>
+         <h1 class="message">
+          {{confirmationMessage}}
+         </h1>
+     
+              <button class="primary-large-btn" (click)="close(true)">Evet</button>
+              <button class="secondary-large-btn" (click)="close(false)">Hayır</button>
+</div>
+</div>

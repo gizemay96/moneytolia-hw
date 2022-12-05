@@ -1,0 +1,49 @@
+<div class="create-campaign-form">
+    <form [formGroup]="campaignForm" (submit)="addCampaign()">
+        <div>
+            <mat-label>Kampanya Türü</mat-label>
+            <div class="row justify-content-around w-100">
+                <div *ngFor="let type of typeList" class="campaign-type col-3" (click)="setCampaignType(type.value)"
+                    [ngStyle]="{'opacity': this.campaignForm.controls['type'].value !== type.value ? 0.4 : 1}">
+                    <p class="type-title">{{type.label}}</p>
+                    <img ngClass="" [src]="'assets/icons/' + type.icon" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="title-input">
+            <mat-label>Başlık</mat-label>
+            <mat-form-field appearance="outline">
+                <input class="input" matInput type="string" formControlName="title" />
+            </mat-form-field>
+        </div>
+        <div class="description-input">
+            <mat-label>Açıklama</mat-label>
+            <mat-form-field appearance="outline">
+                <textarea rows="4" matInput type="string" formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="date-input">
+                <mat-label>Tarih</mat-label>
+                <mat-form-field appearance="outline">
+                    <input [min]="today" [max]="today" matInput readonly [matDatepicker]="picker"
+                        formControlName="expireDate">
+                    <mat-datepicker-toggle matIconPrefix [for]="picker">
+                        <img matDatepickerToggleIcon src="assets/icons/datepicker.png" alt="">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="score-input">
+                <mat-label>Puan</mat-label>
+                <mat-form-field appearance="outline">
+                    <button mat-icon-button matPrefix>
+                        <img src="assets/icons/star.png" alt="">
+                    </button>
+                    <input class="input" matInput type="number" formControlName="score" />
+                </mat-form-field>
+            </div>
+        </div>
+        <button type="submit" class="primary-large-btn mt-4">Kampanya Oluştur</button>
+    </form>
+</div>

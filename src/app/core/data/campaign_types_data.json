@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Yemek",
+        "icon": "food.png",
+        "value": 1
+    },
+    {
+        "label": "Alışveriş",
+        "icon": "shopping.png",
+        "value": 2
+    },
+    {
+        "label": "Film & Dizi",
+        "icon": "movie_tv.png",
+        "value": 3
+    },
+    {
+        "label": "Kahve",
+        "icon": "coffee.png",
+        "value": 4
+    },
+    {
+        "label": "Oyun",
+        "icon": "game.png",
+        "value": 5
+    }
+]
