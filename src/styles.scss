@@ -1,14 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "veriables.scss";
+@import "mixin.scss";
 @import "input_theme.scss";
 @import "buttons.scss";
 @import "modals.scss";
 @import "text_theme.scss";
-@import "veriables.scss";
 
-::ng-deep * {
-    margin: 0;
-    padding: 0;
-}
 html, body { height: 100%; }
 body {  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+body {
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px transparent;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: darken($color: $input-background, $amount: 5%);
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+    }
+}

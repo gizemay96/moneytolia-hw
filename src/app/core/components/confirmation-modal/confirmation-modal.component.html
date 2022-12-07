@@ -1,13 +1,14 @@
-<div class="confirmation-modal d-flex justify-content-center align-items-center h-100">
-<div class="body w-100 h-100">
-     <div>
-          <img style="width: 86px;" src="assets/icons/trash.png" alt="">
-         </div>
-         <h1 class="message">
-          {{confirmationMessage}}
-         </h1>
-     
-              <button class="primary-large-btn" (click)="close(true)">Evet</button>
-              <button class="secondary-large-btn" (click)="close(false)">Hayır</button>
-</div>
+<div class="confirmation-modal">
+     <div class="close-icon"><img (click)="closeModal();" src="assets/icons/close_icon.png" alt=""></div>
+     <div class="body">
+          <div class="img-div" *ngIf="props.imgPath">
+               <img [src]="props.imgPath" alt="">
+          </div>
+          <h1 class="message">
+               {{confirmationMessage}}
+          </h1>
+
+          <button class="primary-large-btn" (click)="closeModal(true)">Evet</button>
+          <button class="outline-large-btn" (click)="closeModal(false)">Hayır</button>
+     </div>
 </div>

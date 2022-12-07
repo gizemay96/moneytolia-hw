@@ -1,82 +1,87 @@
-@import "veriables.scss";
-@import "input_theme.scss";
-@import "buttons.scss";
-@import "modals.scss";
-@import "text_theme.scss";
-@import "veriables.scss";
+@import "../../../../styles.scss";
 
-.campaigns-page{
+.campaigns-page {
     .campaign-card {
-        max-width: 460px;
+        max-width: 500px;
+        min-height: 270px;
         background: white;
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 20px;
-    
+        @include dFlex($justify: space-around , $direction: column);
+
         .header {
-            height: 90px;
-    
-            img {
-                max-height: 50px;
-                width: auto;
-                padding-right: 1vw;
+            @include dFlex($align: flex-start, $justify: space-between);
+            height: 75px;
+            margin-bottom: 10px;
+
+            .header-content {
+                @include dFlex($align: center);
+
+                img {
+                    max-height: 55px;
+                    width: auto;
+                }
+
+                .title {
+                    color: black;
+                    padding: 0 0.8vw;
+                }
             }
-    
-            .title {
-                color: black;
-                padding-right: 10px;
-                padding-bottom: 12px;
-            }
-    
+
             .menu-button {
                 height: 25px;
+                width: 15px;
                 background: transparent;
                 border: none;
-    
+
             }
         }
-    
+
         .body {
             margin-bottom: 12px;
-            min-height: 50px;
-            word-break: break-all;
-    
+            @include txtMaxLine($maxLine: 3, $height: 50);
+
             p {
                 color: $tertiary-color;
+                font-size: 0.87rem;
             }
         }
-    
+
         .footer {
-    
+
             .campaign-score-title {
                 color: $secondary-color;
                 padding-bottom: 6px;
+                font-size: 0.87rem;
             }
-    
+
             .expire-date {
                 width: 116px;
                 height: 36px;
-    
                 background: rgba(64, 206, 124, 0.29);
                 border-radius: 42px;
-    
+                @include dFlex($align: center, $justify: center);
+
                 p {
                     color: $success-color;
+                    font-size: 0.75rem;
                 }
             }
         }
-    
+
         .campaign-score {
-    
+            @include dFlex($align: center, $justify: space-between);
+
             .score-buttons {
                 width: 126px;
                 height: 36px;
-    
                 background: #F1F1F1;
                 border-radius: 42px;
                 padding: 2px 4px;
+                @include dFlex($align: center, $justify: space-between);
             }
         }
-    
+
     }
 }

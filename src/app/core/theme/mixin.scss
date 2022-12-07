@@ -1,0 +1,21 @@
+@mixin dFlex($align: unset, $justify: flex-start, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin txtMaxLine($maxLine: 3, $height: 50px) {
+    min-height: $height;
+    display: -webkit-box;
+    -webkit-line-clamp: $maxLine;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin defaultFont($fontSize: 0.8rem, $fontFamily: 'euclid') {
+    font-family: $fontFamily, 'arial', sans-serif;
+    font-size: $fontSize;
+    margin: 0;
+}

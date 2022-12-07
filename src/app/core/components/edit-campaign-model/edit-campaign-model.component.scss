@@ -1,13 +1,14 @@
-@import "input_theme.scss";
-.edit-campaign-modal {
-    padding: 20px;
-}
+@import "../../../../styles.scss";
+
 
 .body {
-    width: 520px;
+    margin: auto;
+    max-width: 520px;
+    height: 100%;
 
     .header {
         margin-bottom: 40px;
+
         img {
             margin: 0 10px 5px 0;
             width: 30px;
@@ -16,11 +17,12 @@
     }
 
     .title-input {
-        @include input($height: 58px);
+        text-align: left;
+        margin-bottom: 20px;
     }
 
     .description-input {
-        @include input;
+        text-align: left;
         margin-bottom: 40px;
     }
 

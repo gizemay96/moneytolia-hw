@@ -1,17 +1,16 @@
 <div class="login-page">
 
-  <div class="header d-flex align-items-center">
+  <div class="header">
     <div class="logo-div ">
       <img src="../../../assets/images/icon_sm.png" alt="">
     </div>
   </div>
 
   <div class="body row align-items-center justify-content-around">
-    <!-- <div class="col-xl-2 col-md-0 col-sm-0"></div> -->
-    <div class="left col-lg-5 col-sm-12 d-flex justify-content-end">
+    <div class="left col-lg-5 col-sm-12">
       <div class="user-form ">
         <h1>Giriş Yap</h1>
-        <p>Kullanıcı adını ve şifren ile giriş yapabilirsin.</p>
+        <p> Kullanıcı adını ve şifren ile giriş yapabilirsin.</p>
 
         <form [formGroup]="loginForm" (submit)="login()">
           <div class="name">
@@ -29,7 +28,7 @@
 
       </div>
     </div>
-    <div class="right col-lg-7 col-sm-12 d-flex justify-content-end">
+    <div class="right col-lg-7 col-sm-12">
       <img class="login-vector" src="../../../assets/images/login_vector.png" alt="">
     </div>
   </div>

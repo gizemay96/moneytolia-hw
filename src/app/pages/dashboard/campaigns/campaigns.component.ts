@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { firstValueFrom } from 'rxjs';
 import { ConfirmationModalComponent } from 'src/app/core/components/confirmation-modal/confirmation-modal.component';
 import { EditCampaignModelComponent } from 'src/app/core/components/edit-campaign-model/edit-campaign-model.component';
 import { Campaign } from 'src/app/core/models/compaign_model';
-import { CommonServiceService } from 'src/app/services/common-service.service';
-import { CampaignsService } from 'src/app/services/compaigns-service/compaigns-service.service';
+import { CampaignsService } from 'src/app/services/campaigns.service';
 
 @Component({
   selector: 'app-campaigns',
@@ -13,39 +11,36 @@ import { CampaignsService } from 'src/app/services/compaigns-service/compaigns-s
   styleUrls: ['./campaigns.component.scss']
 })
 export class CampaignsComponent {
-  campaignList: Campaign[] = [];
+  campaignList$ = this.campaignService.campaignListObs$;
 
-  constructor(public commonService: CommonServiceService, private campaignService: CampaignsService, public dialog: MatDialog,) { }
+  constructor(private campaignService: CampaignsService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.getCampaigns();
+    this.campaignService.getCampaingList();
   }
 
-  async getCampaigns() {
-    const response = await firstValueFrom(this.campaignService.getCampaingList());
-    this.campaignList = response;
-  }
-
-  confirmationModal(campaign: Campaign) {
+  deleteCampaign(index: number) {
     const message = 'Kampanyayı silmek istediğine emin misin ?';
-    const data = { panelClass: 'modal-smc', data: message };
+    const data = { panelClass: 'modal-smc', data: {message ,  imgPath: "assets/icons/trash.png"} };
     const dialogRef = this.dialog.open(ConfirmationModalComponent, data);
     dialogRef.afterClosed().subscribe(answer => {
-      if (answer.isYes) { this.deleteCampaign(campaign) }
+      if (answer.isYes) { this.campaignService.deleteCampaign(index) }
     });
   }
 
-  async deleteCampaign(campaign: Campaign) {
-    const response = await firstValueFrom(this.campaignService.deleteCampaign(campaign));
-    if (response) { this.getCampaigns() }
+  editCampaign(campaign: Campaign , index: number) {
+    const data = { panelClass: 'modal-smc', data: {campaign , index} };
+    this.dialog.open(EditCampaignModelComponent, data);
   }
 
-  editCampaign(campaign: Campaign) {
-    const data = { panelClass: 'modal-smc', data: campaign };
-    const dialogRef = this.dialog.open(EditCampaignModelComponent, data);
-    dialogRef.afterClosed().subscribe(answer => {
-      if (answer.isYes) { this.deleteCampaign(campaign) }
-    });
+  updateCampaignScore(actionType: string, campaign: Campaign, ind: number) {
+    const data = this.deepCopy(campaign);
+    data.score = actionType === 'increment' ? campaign.score + 1 : campaign.score - 1;
+    this.campaignService.updateCampaing(data, ind);
+  }
+
+  deepCopy(data: Campaign) {
+    return JSON.parse(JSON.stringify(data));
   }
 
 }

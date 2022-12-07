@@ -10,16 +10,16 @@ export class ConfirmationModalComponent {
   confirmationMessage: string = '';
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public props: any,
     public dialogRef: MatDialogRef<ConfirmationModalComponent>,
   ) { 
-    this.confirmationMessage = data;
+    this.confirmationMessage = props.message;
   }
 
   ngOnInit(): void {
   }
 
-  close(isYes = false) {
+  closeModal(isYes = false) {
     this.dialogRef.close({ isYes });
   }
 }

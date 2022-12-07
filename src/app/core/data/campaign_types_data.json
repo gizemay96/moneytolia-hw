@@ -2,26 +2,26 @@
     {
         "label": "Yemek",
         "icon": "food.png",
-        "value": 1
+        "id": 1
     },
     {
         "label": "Alışveriş",
         "icon": "shopping.png",
-        "value": 2
+        "id": 2
     },
     {
         "label": "Film & Dizi",
         "icon": "movie_tv.png",
-        "value": 3
+        "id": 3
     },
     {
         "label": "Kahve",
         "icon": "coffee.png",
-        "value": 4
+        "id": 4
     },
     {
         "label": "Oyun",
         "icon": "game.png",
-        "value": 5
+        "id": 5
     }
 ]

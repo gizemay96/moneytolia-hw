@@ -1,29 +1,36 @@
-<mat-toolbar>
-  <button class="toggle-btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened" fontIcon="menu"></mat-icon>
-    <mat-icon *ngIf="sidenav.opened" fontIcon="close"></mat-icon>
-  </button>
-  <img src="assets/images/icon_sm.png" alt="">
+<mat-toolbar class="d-flex justify-content-between">
+  <div>
+    <button class="toggle-btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened" fontIcon="menu"></mat-icon>
+      <mat-icon *ngIf="sidenav.opened" fontIcon="close"></mat-icon>
+    </button>
+    <img src="assets/images/icon_sm.png" alt="">
+  </div>
+  <div>
+    <button mat-button> Çıkış Yap </button>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
 
   <mat-sidenav #sidenav="matSidenav" mode="side" opened>
-    <span *ngFor="let item of menuItems">
+    <div *ngFor="let item of menuItems">
       <div [ngClass]="{'active': isActiveRoute(item.path)}" class="link" (click)="routeToChild(item.path);">
         <img [src]="isActiveRoute(item.path) ? 'assets/icons/' + item.activeIcon :  'assets/icons/' + item.icon "
           alt="">
         <p>{{item.label}}</p>
       </div>
-    </span>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div class="header">
-      <h2>Kampanya Listeleme</h2>
-    </div>
-    <div class="content">
-      <router-outlet></router-outlet>
+    <div>
+      <div class="header">
+        <h2>Kampanya Listeleme</h2>
+      </div>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 

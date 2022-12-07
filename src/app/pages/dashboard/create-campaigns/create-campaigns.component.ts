@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { firstValueFrom } from 'rxjs';
-import { CampaignsService } from 'src/app/services/compaigns-service/compaigns-service.service';
+import { MessageModalComponent } from 'src/app/core/components/message-modal/message-modal.component';
+import { CampaignType } from 'src/app/core/models/compaign_model';
+import { CampaignsService } from 'src/app/services/campaigns.service';
 
 
 @Component({
@@ -16,24 +18,26 @@ export class CreateCampaignsComponent {
   today = moment();
 
 
-  constructor(private formBuilder: FormBuilder, private campaignService: CampaignsService) {
+  constructor(private formBuilder: FormBuilder, private campaignService: CampaignsService, public dialog: MatDialog) {
     this.campaignForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
+      title: ['', [Validators.required , Validators.maxLength(50)]],
       description: ['', [Validators.required]],
-      score: [0, [Validators.required]],
-      type: [1, [Validators.required]],
+      score: [0, [Validators.required , Validators.min(0)]],
+      type: [null, [Validators.required]],
       expireDate: [this.today, [Validators.required]],
     });
   }
 
-  setCampaignType(selectedType: number) {
+  setCampaignType(selectedType: CampaignType) {
     this.campaignForm.controls['type'].setValue(selectedType);
   }
 
   async addCampaign() {
-    console.log(this.campaignForm.value)
     if (this.campaignForm.valid) {
-      const response = await firstValueFrom(this.campaignService.addCampaign(this.campaignForm.value));
+      this.campaignService.addCampaign(this.campaignForm.value);
+      this.campaignForm.reset();
+      const data = { panelClass: 'modal-smc', data: { message: 'Kampanya başarılı bir şekilde eklenmiştir.', isSuccessMessage: true } };
+      this.dialog.open(MessageModalComponent, data);
     }
   }
 

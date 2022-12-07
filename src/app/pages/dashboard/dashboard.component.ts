@@ -2,6 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +30,7 @@ export class DashboardComponent {
   ]
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private observer: BreakpointObserver , private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private route: ActivatedRoute, private observer: BreakpointObserver , private cdr: ChangeDetectorRef , private authService: AuthServiceService) { }
 
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 992px)']).subscribe((res) => {
@@ -54,6 +55,10 @@ export class DashboardComponent {
 
   isActiveRoute(path: string) {
     return this.router.url === `/dashboard/${path}`;
+  }
+
+  signOut(){
+    this.authService.signOut();
   }
 
 }

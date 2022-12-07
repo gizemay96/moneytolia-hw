@@ -20,17 +20,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { ConfirmationModalComponent } from './core/components/confirmation-modal/confirmation-modal.component';
 import { EditCampaignModelComponent } from './core/components/edit-campaign-model/edit-campaign-model.component';
-
-
-
-
+import { MessageModalComponent } from './core/components/message-modal/message-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +38,7 @@ import { EditCampaignModelComponent } from './core/components/edit-campaign-mode
     CreateCampaignsComponent,
     ConfirmationModalComponent,
     EditCampaignModelComponent,
+    MessageModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +59,7 @@ import { EditCampaignModelComponent } from './core/components/edit-campaign-mode
     MatMomentDateModule,
     MatMenuModule,
     MatDialogModule,
-    LayoutModule
+    LayoutModule,
 
   ],
   providers: [],

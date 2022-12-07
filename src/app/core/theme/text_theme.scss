@@ -1,3 +1,4 @@
+@import "mixin";
 
 @font-face {
     font-family: euclid;
@@ -16,36 +17,25 @@
 
 
 h1{
-    font-size: 2rem;
-    line-height: 41px;
-    font-family: 'euclidSemiBold', 'euclid', sans-serif;
+    @include defaultFont($fontSize: 2rem , $fontFamily: 'euclidSemiBold');
 }
 
-h2 {
-    font-size: 1rem;
-    line-height: 163.8%;
-    font-family: 'euclidSemiBold', 'euclid', sans-serif;
+h2 { 
+    @include defaultFont($fontSize: 1rem , $fontFamily: 'euclidSemiBold');
 }
 
 h3 {
-    font-family: 'euclidMedium', 'euclid', sans-serif;
-    font-size: 1.25rem;
-    line-height: 163.8%;
+    @include defaultFont($fontSize: 1.1rem , $fontFamily: 'euclidMedium');
 }
 
 h4 {
-    font-family: 'euclid', 'arial', sans-serif;
-    font-size: 1.25rem;
-    line-height: 163.8%;
+    @include defaultFont($fontSize: 1.25rem);
 }
 
 p { 
-    margin: 0;
-    font-size: 1rem;
-    line-height: 20px;
+    @include defaultFont($fontSize: 0.9rem);
 }
 
 mat-label{
-    font-size: 0.87rem;
-    line-height: 18px;
+    @include defaultFont($fontSize: 0.8rem);
 }

@@ -1,61 +1,55 @@
-@import "veriables.scss";
+@import "mixin";
 
-.mat-mdc-form-field .mat-mdc-text-field-wrapper {
-    background-color: $input-background;
-    border-radius: 8px !important;
-}
-
-// remove input hit spacing
-.mat-mdc-text-field-wrapper {
-    margin-bottom: -1.25em !important;
-}
-
-// input border is not focused
-.mat-mdc-text-field-wrapper:not(.mdc-text-field--focused, .mdc-text-field--invalid) {
+@mixin textFieldWrapper($borderColor) {
     .mdc-notched-outline__leading {
-        border-color: transparent !important;
+        border-color: $borderColor  !important;
+        border-radius: 8px 0px 0px 8px !important;
     }
 
     .mdc-notched-outline__trailing {
-        border: none !important;
+        border-color: $borderColor  !important;
+        border-radius: 0px 8px 8px 0px !important;
     }
 
     .mdc-notched-outline__notch {
-        border: none !important;
+        border-color: $borderColor  !important;
+    }
+    padding-right: 5px;
+}
+
+
+.mat-mdc-form-field {
+    width: 100%;
+
+    .mat-mdc-text-field-wrapper {
+        background-color: $input-background;
+        border-radius: 8px;
+    }
+
+    // input border is focused
+    .mdc-text-field--focused:not(.mdc-text-field--invalid) {
+        @include textFieldWrapper($borderColor: $primary-color);
+    }
+
+    .mat-mdc-text-field-wrapper:not(.mdc-text-field--focused, .mdc-text-field--invalid) {
+        @include textFieldWrapper($borderColor: transparent);
+    }
+
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        @include defaultFont($fontSize: 0.8rem);
+    }
+
+    textarea {
+        resize: none;
+        padding: 4px 0 14px 0;
     }
 
     .mat-mdc-form-field-subscript-wrapper {
         display: none !important;
     }
-}
-
-// input border is focused
-.mat-mdc-text-field-wrapper {
-    :not(.mdc-text-field--invalid) :is(.mdc-text-field--focused) {
-        .mdc-notched-outline__leading {
-            border-color: $primary-color !important;
-        }
-
-        .mdc-notched-outline__trailing {
-            border-color: $primary-color !important;
-        }
-
-        .mdc-notched-outline__notch {
-            border-color: $primary-color !important;
-        }
-    }
-
-    .mdc-notched-outline__leading {
-        border-radius: 8px 0px 0px 8px !important;
-    }
-
-    .mdc-notched-outline__trailing {
-        border-radius: 0px 8px 8px 0px !important;
-    }
-
-
 
 }
+
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px $input-background inset !important;
@@ -72,27 +66,5 @@ input:-webkit-autofill {
     font-weight: 400 !important;
     font-size: 14px !important;
     line-height: 18px !important;
-    color: $tertiary-color !important;
-}
-
-.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
-    font-weight: 400 !important;
-    font-size: 14px !important;
-    line-height: 18px !important;
-    color: black !important;
-}
-
-@mixin input($height: 100%) {
-    margin-bottom: 20px;
-    mat-form-field {
-        width: 100%;
-        margin-top: 10px;
-        height: $height;
-
-        textarea{
-            resize: none;
-            height: $height;
-            padding: 4px 0 14px 0;
-        }
-    }
+    color: $tertiary-color  !important;
 }

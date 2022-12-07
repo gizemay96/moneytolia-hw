@@ -1,11 +1,20 @@
+@import "mixin";
+
 .modal-smc {
-    width: 652px;
-    height: 570px;
-    border-radius: 16px !important;
-    background: #FFFFFF;
+    width: 650px;
+    min-height: 400px;
+
+    .close-icon {
+        @include dFlex($justify: flex-end);
+
+        img {
+            cursor: pointer;
+        }
+    }
 }
 
 .mat-mdc-dialog-container .mdc-dialog__surface {
+    text-align: center;
+    padding: 30px;
     border-radius: 16px !important;
-
 }

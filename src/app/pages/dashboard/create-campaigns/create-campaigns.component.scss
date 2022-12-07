@@ -1,5 +1,4 @@
-@import "input_theme.scss";
-@import "veriables.scss";
+@import "../../../../styles.scss";
 
 .create-campaign-form {
     max-width: 804px;
@@ -9,17 +8,6 @@
     background: white;
     border-radius: 16px;
     padding: 45px;
-
-    .title-input , .date-input , .score-input {
-        @include input($height: 58px);
-        
-    }
-
-    .description-input {
-        @include input;
-
-    }
-
 }
 
 .campaign-type{
@@ -28,17 +16,17 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px -4px rgba(0,0,0,0.62);
     width: 90px;
-    .type-title {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        color: $tertiary-color;
-    }
+
     img{
         width: 25px;
     }
+}
+
+.suffix-text {
+    font-size: 12px;
+    color: $tertiary-color;
 }

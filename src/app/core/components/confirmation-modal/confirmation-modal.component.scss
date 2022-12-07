@@ -1,24 +1,23 @@
-.confirmation-modal {
-    padding: 20px;
-}
+@import "../../../../styles.scss";
 
 .body {
     max-width: 430px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: auto;
+    margin-top: 15px;
+    @include dFlex($align: center , $justify: center , $direction: column);
 
     img {
         margin-bottom: 13px;
+        width: 86px;
     }
 
     h1 {
         text-align: center;
+        font-size: 1.7rem;
     }
 
     .message {
-        margin-bottom: 77px;
+        margin-bottom: 40px;
     }
 
     .primary-large-btn {

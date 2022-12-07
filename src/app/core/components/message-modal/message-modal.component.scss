@@ -1,0 +1,27 @@
+@import "../../../../styles.scss";
+
+.message-modal{
+    .body {
+        max-width: 430px;
+        margin: auto;
+        @include dFlex($align: center , $justify: center , $direction: column);
+    
+        img {
+            margin-bottom: 13px;
+            width: 86px;
+        }
+    
+        h1 {
+            text-align: center;
+            font-size: 1.7rem;
+        }
+    
+        .message {
+            margin-bottom: 40px;
+        }
+    
+        .primary-large-btn {
+            margin-bottom: 19px;
+        }
+    }
+}
