@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { LocalStorageKey } from '../core/models/localstorage_models';
 
 @Injectable({
@@ -9,10 +8,9 @@ export class LocalstorageRefService {
 
   constructor() { }
 
-  setData(key: LocalStorageKey, data: any, triggerName?: BehaviorSubject<any>) {
+  setData(key: LocalStorageKey, data: any) {
     const jsonData = JSON.stringify(data);
     localStorage.setItem(key, jsonData);
-    triggerName && triggerName.next(data);
   }
 
   getData(key: LocalStorageKey) {

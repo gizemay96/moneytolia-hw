@@ -42,15 +42,19 @@
             .user-form {
                 width: 430px;
             }
-
-            h1 {
-                color: $primary-color;
-                padding-bottom: 19px;
-            }
-
+            
             p {
                 padding-bottom: 41px;
                 color: $tertiary-color
+            }
+            
+            .title{
+                @include dFlex($align: center);
+                padding-bottom: 19px;
+                button{
+                    margin: 5px 0 0 8px;
+                    border-left: 2px solid $primary-color;
+                }
             }
 
             .name {
@@ -59,6 +63,11 @@
 
             .password {
                 padding-bottom: 50px;
+            }
+
+            mat-error{
+                margin-top: -30px;
+                padding-bottom: 5px;
             }
 
         }

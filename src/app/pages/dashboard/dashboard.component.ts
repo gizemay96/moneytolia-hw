@@ -1,15 +1,30 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  standalone: true,
+  imports: [
+    RouterModule,
+    CommonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatIconModule,
+    MatButtonModule
+  ]
 })
-export class DashboardComponent {
+export default class DashboardComponent {
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;

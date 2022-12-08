@@ -17,7 +17,7 @@
 
 
 h1{
-    @include defaultFont($fontSize: 2rem , $fontFamily: 'euclidSemiBold');
+    @include defaultFont($fontSize: 2rem , $fontFamily: 'euclidSemiBold' , $color: $primary-color);
 }
 
 h2 { 

@@ -11,19 +11,21 @@
 }
 
 .campaign-type{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include dFlex($align: center, $justify: center , $direction: column);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px -4px rgba(0,0,0,0.62);
     width: 90px;
+    cursor: pointer;
 
     img{
         width: 25px;
     }
+}
+
+.error-type{
+  box-shadow: 0px 0px 2px 2px rgb(255 0 0 / 62%);
 }
 
 .suffix-text {

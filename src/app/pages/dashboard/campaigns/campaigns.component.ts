@@ -1,23 +1,27 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationModalComponent } from 'src/app/core/components/confirmation-modal/confirmation-modal.component';
-import { EditCampaignModelComponent } from 'src/app/core/components/edit-campaign-model/edit-campaign-model.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Campaign } from 'src/app/core/models/compaign_model';
 import { CampaignsService } from 'src/app/services/campaigns.service';
+import { MatMenuModule } from '@angular/material/menu';
+import { CommonModule } from '@angular/common';
+import { ConfirmationModalComponent } from 'src/app/core/components/confirmation-modal/confirmation-modal.component';
+import { EditCampaignModelComponent } from 'src/app/core/components/edit-campaign-model/edit-campaign-model.component';
 
 @Component({
   selector: 'app-campaigns',
   templateUrl: './campaigns.component.html',
-  styleUrls: ['./campaigns.component.scss']
+  styleUrls: ['./campaigns.component.scss'],
+  standalone: true,
+  imports:  [
+    MatMenuModule,
+    CommonModule,
+    MatDialogModule
+  ]
 })
-export class CampaignsComponent {
+export default class CampaignsComponent {
   campaignList$ = this.campaignService.campaignListObs$;
 
   constructor(private campaignService: CampaignsService, public dialog: MatDialog) {}
-
-  ngOnInit() {
-    this.campaignService.getCampaingList();
-  }
 
   deleteCampaign(index: number) {
     const message = 'Kampanyayı silmek istediğine emin misin ?';

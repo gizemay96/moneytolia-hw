@@ -9,18 +9,22 @@
   <div class="body row align-items-center justify-content-around">
     <div class="left col-lg-5">
       <div class="user-form ">
-        <h1>Giriş Yap</h1>
-        <p> Kullanıcı adını ve şifren ile giriş yapabilirsin.</p>
+        <div class="title">
+          <h1>Giriş Yap</h1> <span class="vertical-line"></span> <button (click)="setForm()" class="text-button">Formu Doldur</button>
+        </div>
+        <p> Kullanıcı adın ve şifren ile giriş yapabilirsin.</p>
+        <mat-error *ngIf="loginError">Kullanıcı adı ya da şire yanlış.</mat-error>
 
         <form [formGroup]="loginForm" (submit)="login()">
           <div class="name">
             <mat-form-field appearance="outline">
-              <input class="input" placeholder="Kullanıcı Adı" matInput type="string" formControlName="email" />
+              <input class="input" placeholder="Kullanıcı Adı" matInput type="text" formControlName="email" />
             </mat-form-field>
           </div>
           <div class="password">
             <mat-form-field appearance="outline">
-              <input class="input" placeholder="Şifre" matInput type="password" formControlName="password"  />
+              <input class="input" name="new-passord" autocomplete="new-password" placeholder="Şifre" matInput
+                type="password" formControlName="password" />
             </mat-form-field>
           </div>
           <button type="submit" class="primary-large-btn">Giriş Yap</button>

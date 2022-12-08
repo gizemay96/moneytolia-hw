@@ -17,9 +17,9 @@ export class MessageModalComponent {
   }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.closeModal();
-    // }, 2300);
+    setTimeout(() => {
+      this.closeModal();
+    }, 2300);
   }
 
   closeModal() {

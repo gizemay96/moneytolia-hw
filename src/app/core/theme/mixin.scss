@@ -14,8 +14,9 @@
     text-overflow: ellipsis;
 }
 
-@mixin defaultFont($fontSize: 0.8rem, $fontFamily: 'euclid') {
+@mixin defaultFont($fontSize: 0.8rem, $fontFamily: 'euclid' , $color: black) {
     font-family: $fontFamily, 'arial', sans-serif;
     font-size: $fontSize;
     margin: 0;
+    color: $color;
 }

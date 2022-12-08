@@ -1,4 +1,5 @@
-@import "../../core/theme/veriables.scss";
+@import "veriables.scss";
+@import "mixin.scss";
 
 
 .dashboard {
@@ -11,6 +12,14 @@ mat-toolbar {
 
     .toggle-btn {
         margin-right: 10px;
+    }
+
+    .signout{
+        @include dFlex($align: center,);
+        img{
+           width: 30px;
+           margin-right: 5px;
+        }
     }
 }
 

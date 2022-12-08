@@ -26,6 +26,11 @@ button {
     opacity: 0.4;
 }
 
+.text-button{
+    background-color: transparent;
+    border: none;
+}
+
 button{
     @include defaultFont($fontSize: 16px);
 }

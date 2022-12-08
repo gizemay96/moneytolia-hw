@@ -5,7 +5,8 @@
             <mat-label>Kampanya Türü</mat-label>
             <div class="row justify-content-around w-100">
                 <div *ngFor="let type of typeList" class="campaign-type col-3" (click)="setCampaignType(type)"
-                    [ngStyle]="{'opacity': this.campaignForm.controls['type'].value?.id !== type.id ? 0.4 : 1}">
+                    [ngStyle]="{'opacity': this.campaignForm.controls['type'].value?.id !== type.id ? 0.4 : 1}"
+                    [ngClass]="{'error-type': typeRequiredErr && !this.campaignForm.controls['type'].value}">
                     <p class="type-title">{{type.label}}</p>
                     <img [src]="'assets/icons/' + type.icon" alt="">
                 </div>
@@ -49,7 +50,7 @@
                 </mat-form-field>
             </div>
         </div>
-        
+
         <button (click)="addCampaign()" type="button" class="primary-large-btn mt-4">Kampanya Oluştur</button>
     </form>
 </div>

@@ -1,6 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { CampaignsService } from 'src/app/services/campaigns.service';
 import { Campaign } from '../../models/compaign_model';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
@@ -8,7 +11,16 @@ import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-m
 @Component({
   selector: 'app-edit-campaign-model',
   templateUrl: './edit-campaign-model.component.html',
-  styleUrls: ['./edit-campaign-model.component.scss']
+  styleUrls: ['./edit-campaign-model.component.scss'],
+  standalone: true,
+  imports:[
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+  ]
 })
 export class EditCampaignModelComponent {
   campaignEditForm: FormGroup;
