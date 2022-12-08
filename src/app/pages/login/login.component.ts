@@ -47,7 +47,6 @@ export default class LoginComponent {
         this.router.navigate(["/dashboard"]);
       } else {
         this.loginError = true;
-        // Object.keys(this.loginForm.value).map(key => { this.loginForm.controls[key].markAllAsTouched() });
       }
     }
   }
