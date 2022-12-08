@@ -20,9 +20,9 @@ export class CreateCampaignsComponent {
 
   constructor(private formBuilder: FormBuilder, private campaignService: CampaignsService, public dialog: MatDialog) {
     this.campaignForm = this.formBuilder.group({
-      title: ['', [Validators.required , Validators.maxLength(50)]],
+      title: ['', [Validators.required, Validators.maxLength(50)]],
       description: ['', [Validators.required]],
-      score: [0, [Validators.required , Validators.min(0)]],
+      score: [0, [Validators.required, Validators.min(0)]],
       type: [null, [Validators.required]],
       expireDate: [this.today, [Validators.required]],
     });
@@ -35,10 +35,19 @@ export class CreateCampaignsComponent {
   async addCampaign() {
     if (this.campaignForm.valid) {
       this.campaignService.addCampaign(this.campaignForm.value);
-      this.campaignForm.reset();
-      const data = { panelClass: 'modal-smc', data: { message: 'Kampanya başarılı bir şekilde eklenmiştir.', isSuccessMessage: true } };
-      this.dialog.open(MessageModalComponent, data);
+      this.formResetOperations();
+      this.showSuccessMessage();
     }
+  }
+
+  formResetOperations() {
+    this.campaignForm.reset();
+    this.campaignForm.controls['expireDate'].setValue(this.today);
+  }
+
+  showSuccessMessage() {
+    const data = { panelClass: 'modal-smc', data: { message: 'Kampanya başarılı bir şekilde eklenmiştir.', isSuccessMessage: true } };
+    this.dialog.open(MessageModalComponent, data);
   }
 
 }

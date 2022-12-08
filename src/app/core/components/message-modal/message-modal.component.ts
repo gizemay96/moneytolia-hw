@@ -17,9 +17,12 @@ export class MessageModalComponent {
   }
 
   ngOnInit(): void {
+    // setTimeout(() => {
+    //   this.closeModal();
+    // }, 2300);
   }
 
-  closeModal(isYes = false) {
-    this.dialogRef.close({ isYes });
+  closeModal() {
+    this.dialogRef.close();
   }
 }

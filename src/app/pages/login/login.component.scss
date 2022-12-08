@@ -6,14 +6,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    padding: 0 50px;
+    padding: 0 2.3vw;
 
     .header {
         height: 80px;
         @include dFlex($align: center);
 
         .logo-div {
-            width: 430px;
+            max-width: 430px;
         }
     }
 
@@ -23,24 +23,24 @@
         height: 90%;
 
         .right {
-            @include dFlex($justify: flex-end);
+            @include dFlex($justify: center);
+            padding-left: 18vw;
+
             img {
-                margin-top: -90px;
-                max-width: 520px;
-                max-width: 1300px;
                 height: auto;
+                max-width: 400px;
+                @media screen and (min-width: 1400px) {
+                    margin-top: -5vw;
+                    max-width: 100%;
+                }
             }
         }
 
         .left {
-            // min-height: 65%;
+            @include dFlex($justify: flex-end);
 
             .user-form {
                 width: 430px;
-            }
-
-            mat-form-field {
-                width: 100%;
             }
 
             h1 {
@@ -68,14 +68,11 @@
             flex-flow: column-reverse;
 
             .right {
-                justify-content: center !important;
-                padding: 50px 0;
+                padding-left: 0;
 
                 img {
-                    width: calc(100% - 50px) !important;
-                    max-width: 300px !important;
+                    max-width: 350px !important;
                     height: auto;
-                    padding-right: 45px;
                 }
             }
 

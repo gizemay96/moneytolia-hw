@@ -14,7 +14,7 @@
     .mdc-notched-outline__notch {
         border-color: $borderColor  !important;
     }
-    padding-right: 5px;
+
 }
 
 
@@ -26,15 +26,19 @@
         border-radius: 8px;
     }
 
+    .mat-mdc-form-field-flex{
+        padding: 0 8px;
+    }
+    
     // input border is focused
     .mdc-text-field--focused:not(.mdc-text-field--invalid) {
         @include textFieldWrapper($borderColor: $primary-color);
     }
-
+    
     .mat-mdc-text-field-wrapper:not(.mdc-text-field--focused, .mdc-text-field--invalid) {
         @include textFieldWrapper($borderColor: transparent);
     }
-
+    
     .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
         @include defaultFont($fontSize: 0.8rem);
     }

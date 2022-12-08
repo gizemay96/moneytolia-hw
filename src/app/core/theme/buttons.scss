@@ -10,7 +10,6 @@ button {
     border-radius: 8px;
     height: 58px;
     color: white;
-    @include defaultFont($fontSize: 16px);
 }
 
 .outline-large-btn {
@@ -20,10 +19,13 @@ button {
     color: $primary-color;
     background: white;
     border: 1px solid $primary-color;
-    @include defaultFont($fontSize: 16px);
 }
 
 .disable{
     pointer-events: none;
     opacity: 0.4;
+}
+
+button{
+    @include defaultFont($fontSize: 16px);
 }

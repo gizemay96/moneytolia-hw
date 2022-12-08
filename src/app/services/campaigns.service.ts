@@ -14,28 +14,31 @@ export class CampaignsService {
   public _campaignListSubject$ = new BehaviorSubject<Campaign[]>([]);
   public campaignListObs$ = this._campaignListSubject$.asObservable();
   serviceKey: LocalStorageKey = 'campaignList';
-  
+
+  get currentList() {
+    return this._campaignListSubject$.getValue();
+  }
 
   getCampaingList() {
     const campaignList: Campaign[] = this._localStorage.getData(this.serviceKey);
-    this._campaignListSubject$.next(campaignList);
+    return this._campaignListSubject$.next(campaignList);
   }
 
   addCampaign(newCampaign: Campaign) {
-    const newList: Campaign[] = [...this._localStorage.getData(this.serviceKey), ...[newCampaign]];
-    this._localStorage.setData(this.serviceKey, newList, this._campaignListSubject$);
+    this._campaignListSubject$.next([...this.currentList, newCampaign]);
+    this._localStorage.setData(this.serviceKey, this.currentList, this._campaignListSubject$);
   }
 
-  updateCampaing(updatedData: Campaign , index: number){
-    const newList: Campaign[] = this._localStorage.getData(this.serviceKey);
-    newList[index] = {...updatedData};
-    this._localStorage.setData(this.serviceKey, newList, this._campaignListSubject$);
+  updateCampaing(updatedData: Campaign, index: number) {
+    const currentList = this.currentList;
+    currentList[index] = updatedData;
+    this._campaignListSubject$.next([...currentList]);
+    this._localStorage.setData(this.serviceKey, this.currentList, this._campaignListSubject$);
   }
 
   deleteCampaign(index: number) {
-    const newList: Campaign[] = this._localStorage.getData(this.serviceKey);
-    newList.splice(index, 1);
-    this._localStorage.setData(this.serviceKey, newList, this._campaignListSubject$);
+    this._campaignListSubject$.next(this.currentList.filter((item, ind) => ind !== index))
+    this._localStorage.setData(this.serviceKey, this.currentList, this._campaignListSubject$);
   }
 
 }

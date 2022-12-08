@@ -16,7 +16,7 @@
             <mat-label>Başlık</mat-label>
             <mat-form-field appearance="outline">
                 <input maxlength="50" class="input" matInput #titleInput type="string" formControlName="title" />
-                <span class="suffix-text" matSuffix>{{titleInput.value?.length || 0}}/50</span>
+                <span class="suffix-text" matSuffix>{{titleInput.value.length || 0}}/50</span>
             </mat-form-field>
         </div>
 
@@ -50,6 +50,6 @@
             </div>
         </div>
         
-        <button type="submit" class="primary-large-btn mt-4">Kampanya Oluştur</button>
+        <button (click)="addCampaign()" type="button" class="primary-large-btn mt-4">Kampanya Oluştur</button>
     </form>
 </div>

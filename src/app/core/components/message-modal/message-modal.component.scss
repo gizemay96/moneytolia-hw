@@ -4,6 +4,7 @@
     .body {
         max-width: 430px;
         margin: auto;
+        padding: 35px 0;
         @include dFlex($align: center , $justify: center , $direction: column);
     
         img {
