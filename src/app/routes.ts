@@ -12,8 +12,7 @@ export const AppRoutes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import("../app/pages/dashboard/dashboard.component"),
-    canActivate: [
-      () => {
+    canActivate: [ () => {
         const router = inject(Router); const authService = inject(AuthServiceService);
         return authService._isLogined$.pipe(tap(value => { return !value ? router.navigate(['/']) : true })).subscribe();
       }

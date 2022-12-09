@@ -3,7 +3,6 @@ import { User } from 'src/app/core/models/user-model';
 import { LocalstorageRefService } from './localstorage.service';
 import { BehaviorSubject, filter, fromEvent, map } from 'rxjs';
 import { LocalStorageKey } from 'src/app/core/models/localstorage_models';
-import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +20,7 @@ export class AuthServiceService {
     map(event => JSON.parse(event.storageArea?.['isLogined'] || false))
   );
 
-  constructor(private localStorageService: LocalstorageRefService, private router: Router) { }
+  constructor(private localStorageService: LocalstorageRefService) { }
 
   setLoginData() {
     this._isLogined$.next(this.localStorageService.getData(this.serviceKey));

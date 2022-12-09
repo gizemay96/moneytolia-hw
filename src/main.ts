@@ -1,6 +1,5 @@
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { CommonModule } from "@angular/common";
 import { importProvidersFrom } from "@angular/core";
 import { bootstrapApplication, BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
@@ -22,4 +21,4 @@ bootstrapApplication(AppComponent , {
       BrowserAnimationsModule
     )
   ]
-})
+});
