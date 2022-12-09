@@ -1,4 +1,6 @@
 <div class="campaigns-page">
+    <h1 class="page-title pb-4">Kampanya Listeleme</h1>
+    
     <div class="row w-100">
         <div class="col-md-6 col-xxl-4" *ngFor="let campaign of campaignList$ | async; let i = index">
             <div class="campaign-card">
@@ -31,11 +33,11 @@
                     <p class="campaign-score-title">Kampanya Puanı</p>
                     <div class="campaign-score">
                         <div class="score-buttons">
-                            <div [ngClass]="{'disable' : campaign.score === 0}" (click)="updateCampaignScore('decrement' ,campaign , i)"> <img
-                                    src="assets/icons/minus.png" alt=""></div>
+                            <div [ngClass]="{'disable' : campaign.score === 0}" (click)="updateCampaignScore('decrement' ,campaign , i)"> 
+                                <img src="assets/icons/minus.png" alt=""></div>
                             <div>{{campaign.score}}</div>
-                            <div (click)="updateCampaignScore('increment' , campaign , i)"> <img
-                                    src="assets/icons/plus.png" alt=""></div>
+                            <div (click)="updateCampaignScore('increment' , campaign , i)">
+                                 <img src="assets/icons/plus.png" alt=""></div>
                         </div>
                         <div class="expire-date">
                             <p> {{campaign.expireDate | date: 'dd/MM/yyyy'}}</p>

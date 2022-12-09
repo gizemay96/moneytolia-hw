@@ -1,5 +1,5 @@
 <mat-toolbar class="d-flex justify-content-between">
-  <div>
+  <div class="left">
     <button class="toggle-btn" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <mat-icon *ngIf="!sidenav.opened" fontIcon="menu"></mat-icon>
       <mat-icon *ngIf="sidenav.opened" fontIcon="close"></mat-icon>
@@ -27,7 +27,6 @@
   <mat-sidenav-content>
     <div>
       <div class="header">
-        <h2>Kampanya Listeleme</h2>
       </div>
       <div class="content">
         <router-outlet></router-outlet>

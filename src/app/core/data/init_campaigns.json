@@ -1,0 +1,49 @@
+[
+    {
+      "title": "Trendyol’da 250 TL üzeri alışverişlerine 50 TL indirim!",
+      "description": "Trendyol alışverişini Moneytolia Kart ile yap, 250 TL ve üzeri alışverişinde 50 TL indirim kodu kazan.",
+      "score": 8,
+      "type": {
+        "label": "Alışveriş",
+        "icon": "shopping.png",
+        "id": 2
+      },
+      "expireDate": "2022-12-08T19:01:58.232Z"
+    },
+
+    {
+      "title": "Yemeksepeti siparişine %20 indirim fırsatı",
+      "description": "Yemeksepeti uygulamasından vereceğin online ödeme seçenekli siparişinde Moneytolia’ya özel %20 indirim...",
+      "score": 7,
+      "type": {
+        "label": "Yemek",
+        "icon": "food.png",
+        "id": 1
+      },
+      "expireDate": "2022-12-08T19:02:09.779Z"
+    },
+
+    {
+      "title": "Disney+ aboneliklerinde %50 nakit iade",
+      "description": "Moneytolia Kart ile yapacağın Disney+ aboneliğinin yarısı anında kartına iade!",
+      "score": 10,
+      "type": {
+        "label": "Film & Dizi",
+        "icon": "movie_tv.png",
+        "id": 3
+      },
+      "expireDate": "2022-12-08T19:02:09.779Z"
+    },
+
+    {
+      "title": "Steam’de geçerli 30 TL indirim kodu fırsatı",
+      "description": "Moneytolia Kart ile Steam’den yapacağın oyun alışverişlerinde 30 TL indirim kazan.",
+      "score": 9,
+      "type": {
+        "label": "Oyun",
+        "icon": "game.png",
+        "id": 5
+      },
+      "expireDate": "2022-12-08T19:02:09.779Z"
+    }
+  ]

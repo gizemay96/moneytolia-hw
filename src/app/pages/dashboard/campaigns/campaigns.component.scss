@@ -1,9 +1,10 @@
 @import "../../../../styles.scss";
 
 .campaigns-page {
+
     .campaign-card {
-        max-width: 500px;
-        min-height: 270px;
+        max-width: 460px;
+        min-height: 255px;
         background: white;
         border-radius: 10px;
         padding: 20px;
@@ -41,7 +42,7 @@
 
         .body {
             margin-bottom: 12px;
-            @include txtMaxLine($maxLine: 3, $height: 50);
+            @include txtMaxLine($maxLine: 3, $height: 50px);
 
             p {
                 color: $tertiary-color;
@@ -51,6 +52,18 @@
 
         .footer {
 
+            .campaign-score {
+                @include dFlex($align: center, $justify: space-between);
+
+                .score-buttons {
+                    width: 126px;
+                    height: 36px;
+                    background: #F1F1F1;
+                    border-radius: 42px;
+                    padding: 2px 4px;
+                    @include dFlex($align: center, $justify: space-between);
+                }
+            }
             .campaign-score-title {
                 color: $secondary-color;
                 padding-bottom: 6px;
@@ -60,7 +73,7 @@
             .expire-date {
                 width: 116px;
                 height: 36px;
-                background: rgba(64, 206, 124, 0.29);
+                background: $success-opacity;
                 border-radius: 42px;
                 @include dFlex($align: center, $justify: center);
 
@@ -71,18 +84,13 @@
             }
         }
 
-        .campaign-score {
-            @include dFlex($align: center, $justify: space-between);
 
-            .score-buttons {
-                width: 126px;
-                height: 36px;
-                background: #F1F1F1;
-                border-radius: 42px;
-                padding: 2px 4px;
-                @include dFlex($align: center, $justify: space-between);
-            }
-        }
+    }
+}
 
+
+@media screen and (max-width: 992px) {
+    .campaign-card{
+        max-width: unset !important;
     }
 }

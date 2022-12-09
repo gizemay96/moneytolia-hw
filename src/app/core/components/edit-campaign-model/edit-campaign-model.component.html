@@ -10,7 +10,8 @@
                 <div class="title-input">
                     <mat-label>Başlık</mat-label>
                     <mat-form-field appearance="outline">
-                        <input matInput type="string" formControlName="title" />
+                        <input maxlength="55" class="input" matInput #titleInput type="string" formControlName="title" />
+                        <span class="suffix-text" matSuffix>{{titleInput.value.length || 0}}/55</span>
                     </mat-form-field>
                 </div>
                 <div class="description-input">

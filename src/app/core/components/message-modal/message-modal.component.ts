@@ -12,14 +12,12 @@ export class MessageModalComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public props: any,
     public dialogRef: MatDialogRef<MessageModalComponent>,
-  ) { 
+  ) {
     this.message = props.message;
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.closeModal();
-    }, 2300);
+    setTimeout(() => { this.closeModal(); }, 2000);
   }
 
   closeModal() {

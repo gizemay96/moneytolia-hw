@@ -1,56 +1,59 @@
-<div class="create-campaign-form">
+<div class="create-campaign-page">
+  <h1 class="page-title pb-4">Kampanya Oluşturma</h1>
+
+  <div class="create-campaign-form">
     <form [formGroup]="campaignForm" (submit)="addCampaign()">
 
-        <div class="type-input">
-            <mat-label>Kampanya Türü</mat-label>
-            <div class="row justify-content-around w-100">
-                <div *ngFor="let type of typeList" class="campaign-type col-3" (click)="setCampaignType(type)"
-                    [ngStyle]="{'opacity': this.campaignForm.controls['type'].value?.id !== type.id ? 0.4 : 1}"
-                    [ngClass]="{'error-type': typeRequiredErr && !this.campaignForm.controls['type'].value}">
-                    <p class="type-title">{{type.label}}</p>
-                    <img [src]="'assets/icons/' + type.icon" alt="">
-                </div>
-            </div>
+      <div class="type-input">
+        <mat-label>Kampanya Türü</mat-label>
+        <div class="row justify-content-around w-100">
+          <div *ngFor="let type of typeList" class="campaign-type col-3" (click)="setCampaignType(type)"
+            [ngStyle]="{'opacity': this.campaignForm.controls['type'].value?.id !== type.id ? 0.4 : 1}"
+            [ngClass]="{'error-type': typeRequiredErr && !this.campaignForm.controls['type'].value}">
+            <p class="type-title">{{type.label}}</p>
+            <img [src]="'assets/icons/' + type.icon" alt="">
+          </div>
         </div>
+      </div>
 
-        <div class="title-input">
-            <mat-label>Başlık</mat-label>
-            <mat-form-field appearance="outline">
-                <input maxlength="50" class="input" matInput #titleInput type="string" formControlName="title" />
-                <span class="suffix-text" matSuffix>{{titleInput.value.length || 0}}/50</span>
-            </mat-form-field>
+      <div class="title-input">
+        <mat-label>Başlık</mat-label>
+        <mat-form-field appearance="outline">
+          <input maxlength="55" class="input" matInput #titleInput type="string" formControlName="title" />
+          <span class="suffix-text" matSuffix>{{titleInput.value.length || 0}}/55</span>
+        </mat-form-field>
+      </div>
+
+      <div class="description-input">
+        <mat-label>Açıklama</mat-label>
+        <mat-form-field appearance="outline">
+          <textarea rows="4" matInput type="string" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="twin-inputs row">
+        <div class="date-input col-6">
+          <mat-label>Tarih</mat-label>
+          <mat-form-field appearance="outline">
+            <input [min]="today" [max]="today" matInput readonly [matDatepicker]="picker" formControlName="expireDate">
+            <mat-datepicker-toggle matIconPrefix [for]="picker">
+              <img matDatepickerToggleIcon src="assets/icons/datepicker.png" alt="">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
-
-        <div class="description-input">
-            <mat-label>Açıklama</mat-label>
-            <mat-form-field appearance="outline">
-                <textarea rows="4" matInput type="string" formControlName="description"></textarea>
-            </mat-form-field>
+        <div class="score-input col-6">
+          <mat-label>Puan</mat-label>
+          <mat-form-field appearance="outline">
+            <button mat-icon-button matPrefix>
+              <img src="assets/icons/star.png" alt="">
+            </button>
+            <input class="input" matInput min="0" type="number" formControlName="score" />
+          </mat-form-field>
         </div>
+      </div>
 
-        <div class="twin-inputs row">
-            <div class="date-input col-6">
-                <mat-label>Tarih</mat-label>
-                <mat-form-field appearance="outline">
-                    <input [min]="today" [max]="today" matInput readonly [matDatepicker]="picker"
-                        formControlName="expireDate">
-                    <mat-datepicker-toggle matIconPrefix [for]="picker">
-                        <img matDatepickerToggleIcon src="assets/icons/datepicker.png" alt="">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
-            <div class="score-input col-6">
-                <mat-label>Puan</mat-label>
-                <mat-form-field appearance="outline">
-                    <button mat-icon-button matPrefix>
-                        <img src="assets/icons/star.png" alt="">
-                    </button>
-                    <input class="input" matInput min="0" type="number" formControlName="score" />
-                </mat-form-field>
-            </div>
-        </div>
-
-        <button (click)="addCampaign()" type="button" class="primary-large-btn mt-4">Kampanya Oluştur</button>
+      <button (click)="addCampaign()" type="button" class="primary-large-btn mt-4">Kampanya Oluştur</button>
     </form>
+  </div>
 </div>

@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MessageModalComponent } from 'src/app/core/components/message-modal/message-modal.component';
+import { WhiteSpaceValidator } from 'src/app/core/validators/whiteSpace.validator';
 
 
 @Component({
@@ -43,8 +44,8 @@ export default class CreateCampaignsComponent {
 
   constructor(private formBuilder: FormBuilder, private campaignService: CampaignsService, public dialog: MatDialog) {
     this.campaignForm = this.formBuilder.group({
-      title: [null, [Validators.required, Validators.maxLength(50)]],
-      description: [null, [Validators.required]],
+      title: [null, [Validators.required, Validators.maxLength(55) , WhiteSpaceValidator]],
+      description: [null, [Validators.required , WhiteSpaceValidator]],
       score: [0, [Validators.required, Validators.min(0)]],
       type: [null, [Validators.required]],
       expireDate: [this.today, [Validators.required]],
