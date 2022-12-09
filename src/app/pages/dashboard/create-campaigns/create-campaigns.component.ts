@@ -5,16 +5,26 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import * as moment from 'moment';
 import { CampaignType } from 'src/app/core/models/compaign_model';
 import { CampaignsService } from 'src/app/services/campaigns.service';
 import { CommonModule } from '@angular/common';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MessageModalComponent } from 'src/app/core/components/message-modal/message-modal.component';
 import { WhiteSpaceValidator } from 'src/app/core/validators/whiteSpace.validator';
 
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-create-campaigns',
@@ -33,19 +43,23 @@ import { WhiteSpaceValidator } from 'src/app/core/validators/whiteSpace.validato
     MatNativeDateModule,
     MatMomentDateModule,
     MatButtonModule
+  ],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ]
 })
 export default class CreateCampaignsComponent {
   public campaignForm: FormGroup;
   typeList = require('../../../core/data/campaign_types_data.json');
-  today = moment();
+  today = new Date();
   typeRequiredErr = false;
 
 
   constructor(private formBuilder: FormBuilder, private campaignService: CampaignsService, public dialog: MatDialog) {
     this.campaignForm = this.formBuilder.group({
-      title: [null, [Validators.required, Validators.maxLength(55) , WhiteSpaceValidator]],
-      description: [null, [Validators.required , WhiteSpaceValidator]],
+      title: [null, [Validators.required, Validators.maxLength(55), WhiteSpaceValidator]],
+      description: [null, [Validators.required, WhiteSpaceValidator]],
       score: [0, [Validators.required, Validators.min(0)]],
       type: [null, [Validators.required]],
       expireDate: [this.today, [Validators.required]],

@@ -1,7 +1,7 @@
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { importProvidersFrom } from "@angular/core";
-import { bootstrapApplication, BrowserModule } from "@angular/platform-browser";
+import { bootstrapApplication } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app/app.component";
 import { AppRoutes } from "./app/routes";
@@ -17,7 +17,6 @@ bootstrapApplication(AppComponent , {
   providers: [
     importProvidersFrom(
       RouterModule.forRoot(AppRoutes),
-      BrowserModule,
       BrowserAnimationsModule
     )
   ]
